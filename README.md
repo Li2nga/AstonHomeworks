@@ -1,2 +1,2 @@
-Работа по онлайн-курса "Java Developer" ASTON 
+Работа по онлайн-курсу "Java Developer" ASTON 
 Студент Зайцева Ирина
