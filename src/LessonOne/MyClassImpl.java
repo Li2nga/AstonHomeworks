@@ -1,3 +1,5 @@
+package LessonOne;
+
 public class MyClassImpl implements MyClass {
     private int myFieldOne;
     private int myFieldTwo;

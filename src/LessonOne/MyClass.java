@@ -1,3 +1,5 @@
+package LessonOne;
+
 public interface MyClass {
     int getMyFieldOne();
 
