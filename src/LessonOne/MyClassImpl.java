@@ -14,7 +14,9 @@ public class MyClassImpl implements MyClass {
     public void setMyFieldOne(int myFieldOne) {
         if (myFieldOne > 0) {
             this.myFieldOne = myFieldOne;
-        } else System.out.println("myFieldOne must be >0");
+        } else {
+            throw new InappropriateAgeRuntimeException("myFieldOne must be >0");
+        }
     }
 
     @Override
@@ -26,7 +28,9 @@ public class MyClassImpl implements MyClass {
     public void setMyFieldTwo(int myFieldTwo) {
         if (myFieldTwo < 0) {
             this.myFieldTwo = myFieldTwo;
-        } else System.out.println("myFieldTwo must be <0");
+        } else {
+            throw new InappropriateAgeRuntimeException2("myFieldTwo must be <0");
+        }
     }
 
     @Override
@@ -44,5 +48,3 @@ public class MyClassImpl implements MyClass {
         }
     }
 }
-
-
