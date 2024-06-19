@@ -1,4 +1,4 @@
-package LessonOne;
+package StageOne.LessonOne;
 
 public class Main {
     public static void main(String[] args) {

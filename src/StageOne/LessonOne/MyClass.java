@@ -1,4 +1,4 @@
-package LessonOne;
+package StageOne.LessonOne;
 
 public interface MyClass {
     int getMyFieldOne();

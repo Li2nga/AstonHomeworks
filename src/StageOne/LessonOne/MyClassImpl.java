@@ -1,4 +1,4 @@
-package LessonOne;
+package StageOne.LessonOne;
 
 public class MyClassImpl implements MyClass {
     private int myFieldOne;

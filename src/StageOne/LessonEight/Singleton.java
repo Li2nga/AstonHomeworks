@@ -1,4 +1,4 @@
-package LessonEight;
+package StageOne.LessonEight;
 
 public class Singleton {
     private static Singleton instance;

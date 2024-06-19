@@ -1,4 +1,4 @@
-package LessonSix;
+package StageOne.LessonSix;
 
 import java.io.*;
 
@@ -7,14 +7,14 @@ public class Main {
 
         Person person = new Person(71, "Ivan", 4545454);
 
-        FileOutputStream outputStream = new FileOutputStream("src/LessonSix/save.txt");
+        FileOutputStream outputStream = new FileOutputStream("src/StageOne.LessonSix/save.txt");
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
 
         objectOutputStream.writeObject(person);
 
         objectOutputStream.close();
 
-        FileInputStream fileInputStream = new FileInputStream("src/LessonSix/save.txt");
+        FileInputStream fileInputStream = new FileInputStream("src/StageOne.LessonSix/save.txt");
         ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
 
         objectInputStream.readObject();

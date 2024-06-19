@@ -1,4 +1,4 @@
-package LessonSix;
+package StageOne.LessonSix;
 
 import java.io.Serial;
 import java.io.Serializable;
