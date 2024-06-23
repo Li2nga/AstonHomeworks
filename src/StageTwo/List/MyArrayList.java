@@ -41,8 +41,29 @@ public class MyArrayList<E> extends AbstractList<E> {
         return true;
     }
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /**
+     * Removes the element at the specified position in this list.
+     * Shifts any subsequent elements to the left (subtracts one from their
+     * indices).
+     *
+     * @param index the index of the element to be removed
+     * @return the element that was removed from the list
+     * @throws IndexOutOfBoundsException {@inheritDoc}
+     */
+    public E remove(int index) {
+        Objects.checkIndex(index, size);
 
+        @SuppressWarnings("unchecked") E oldValue = (E) elementData[index];
+
+        final int newSize;
+        if ((newSize = size - 1) > index)
+            System.arraycopy(elementData, index + 1, elementData, index, newSize - index);
+        size = newSize;
+
+        return oldValue;
+    }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     @Override
     public E get(int index) {
         return null;
