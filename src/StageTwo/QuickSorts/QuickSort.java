@@ -33,8 +33,4 @@ public record QuickSort<T extends Comparable<T>>(T[] arr) {
             arr[secondIndex] = temp;
         }
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/L3
 }
