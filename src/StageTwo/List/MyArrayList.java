@@ -56,8 +56,9 @@ public class MyArrayList<E> {
         @SuppressWarnings("unchecked") E oldValue = (E) elementData[index];
 
         final int newSize;
-        if ((newSize = size - 1) > index)
+        if ((newSize = size - 1) > index) {
             System.arraycopy(elementData, index + 1, elementData, index, newSize - index);
+        }
         size = newSize;
 
         if (elementData.length - 20 == size) {
