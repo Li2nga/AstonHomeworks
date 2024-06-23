@@ -60,17 +60,45 @@ public class MyArrayList<E> extends AbstractList<E> {
             System.arraycopy(elementData, index + 1, elementData, index, newSize - index);
         size = newSize;
 
+        if (elementData.length - 20 == size) {
+            elementData = Arrays.copyOf(elementData, elementData.length - 10);
+        }
+
         return oldValue;
     }
-
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     @Override
     public E get(int index) {
-        return null;
+        Objects.checkIndex(index, size);
+        return elementData(index);
+    }
+
+    @SuppressWarnings("unchecked")
+    E elementData(int index) {
+        return (E) elementData[index];
+    }
+
+    /**
+     * Replaces the element at the specified position in this list with
+     * the specified element.
+     *
+     * @param index   index of the element to replace
+     * @param element element to be stored at the specified position
+     * @return the element previously at the specified position
+     * @throws IndexOutOfBoundsException {@inheritDoc}
+     */
+    public E set(int index, E element) {
+        Objects.checkIndex(index, size);
+        E oldValue = elementData(index);
+        elementData[index] = element;
+        return oldValue;
     }
 
     @Override
     public int size() {
-        return 0;
+        return size;
+    }
+
+    public int dataSize() {
+        return elementData.length;
     }
 }
