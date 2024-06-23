@@ -47,5 +47,16 @@ public class Main {
         System.out.println("a.size() = " + a.size());
         System.out.println("a.dataSize() = " + a.dataSize());
         System.out.println("a = " + a);
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+        MyLinkedList<Integer> b = new MyLinkedList<>();
+
+        b.add(10);
+        b.add(20);
+        b.add(40);
+        b.add(50);
+        System.out.println("b = " + b);
+        b.remove(1);
+        System.out.println("b = " + b);
     }
 }
