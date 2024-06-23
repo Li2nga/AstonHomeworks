@@ -27,6 +27,22 @@ public class MyArrayList<E> extends AbstractList<E> {
         this.elementData = new Object[10];
     }
 
+    /**
+     * Appends the specified element to the end of this list.
+     *
+     * @param e element to be appended to this list
+     * @return {@code true} (as specified by {@link Collection#add})
+     */
+    public boolean add(E e) {
+        if (elementData.length == size) {
+            elementData = Arrays.copyOf(elementData, size + 10);
+        }
+        elementData[size++] = e;
+        return true;
+    }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     @Override
     public E get(int index) {
         return null;
