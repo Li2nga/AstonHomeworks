@@ -25,6 +25,7 @@ public class Main {
         a.add(50);
         a.add(50);
         a.add(50);
+        a.set(2,333);
         System.out.println("a = " + a);
         a.remove(0);
         System.out.println("a = " + a);
