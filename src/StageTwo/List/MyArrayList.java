@@ -7,7 +7,7 @@ import java.util.*;
  *
  * @author Irina Zaitceva
  */
-public class MyArrayList<E> extends AbstractList<E> {
+public class MyArrayList<E> {
     /**
      * The size of the ArrayList (the number of elements it contains).
      */
@@ -66,7 +66,7 @@ public class MyArrayList<E> extends AbstractList<E> {
 
         return oldValue;
     }
-    @Override
+
     public E get(int index) {
         Objects.checkIndex(index, size);
         return elementData(index);
@@ -93,12 +93,19 @@ public class MyArrayList<E> extends AbstractList<E> {
         return oldValue;
     }
 
-    @Override
     public int size() {
         return size;
     }
 
     public int dataSize() {
         return elementData.length;
+    }
+
+    @Override
+    public String toString() {
+        return "MyArrayList{" +
+                "size=" + size +
+                ", elementData=" + Arrays.toString(elementData) +
+                '}';
     }
 }

@@ -8,7 +8,7 @@ import java.util.function.Consumer;
  *
  * @author Irina Zaitceva
  */
-public class MyLinkedList<E> extends AbstractSequentialList<E> {
+public class MyLinkedList<E> {
     /**
      * The size of the MyLinkedListList (the number of elements it contains).
      */
@@ -34,6 +34,11 @@ public class MyLinkedList<E> extends AbstractSequentialList<E> {
             this.next = next;
             this.prev = prev;
         }
+
+        @Override
+        public String toString() {
+            return item.toString();
+        }
     }
 
     public MyLinkedList() {
@@ -56,6 +61,15 @@ public class MyLinkedList<E> extends AbstractSequentialList<E> {
             l.next = newNode;
         size++;
         return true;
+    }
+
+    @Override
+    public String toString() {
+        StringBuffer s = new StringBuffer();
+        for (int i = 0; i < size; i++) {
+            s.append(node(i) + " ");
+        }
+        return s.toString();
     }
 
     /**
@@ -135,8 +149,6 @@ public class MyLinkedList<E> extends AbstractSequentialList<E> {
         return node(index).item;
     }
 
-
-    @Override
     public int size() {
         return size;
     }
@@ -162,7 +174,6 @@ public class MyLinkedList<E> extends AbstractSequentialList<E> {
         private Node<E> lastReturned;
         private Node<E> next;
         private int nextIndex;
-        private int expectedModCount = modCount;
 
         ListItr(int index) {
             // assert isPositionIndex(index);
@@ -175,7 +186,6 @@ public class MyLinkedList<E> extends AbstractSequentialList<E> {
         }
 
         public E next() {
-            checkForComodification();
             if (!hasNext())
                 throw new NoSuchElementException();
 
@@ -190,7 +200,6 @@ public class MyLinkedList<E> extends AbstractSequentialList<E> {
         }
 
         public E previous() {
-            checkForComodification();
             if (!hasPrevious())
                 throw new NoSuchElementException();
 
@@ -208,7 +217,6 @@ public class MyLinkedList<E> extends AbstractSequentialList<E> {
         }
 
         public void remove() {
-            checkForComodification();
             if (lastReturned == null)
                 throw new IllegalStateException();
 
@@ -219,41 +227,31 @@ public class MyLinkedList<E> extends AbstractSequentialList<E> {
             else
                 nextIndex--;
             lastReturned = null;
-            expectedModCount++;
         }
 
         public void set(E e) {
             if (lastReturned == null)
                 throw new IllegalStateException();
-            checkForComodification();
             lastReturned.item = e;
         }
 
         public void add(E e) {
-            checkForComodification();
             lastReturned = null;
             if (next == null)
                 linkLast(e);
             else
                 linkBefore(e, next);
             nextIndex++;
-            expectedModCount++;
         }
 
         public void forEachRemaining(Consumer<? super E> action) {
             Objects.requireNonNull(action);
-            while (modCount == expectedModCount && nextIndex < size) {
+            while (nextIndex < size) {
                 action.accept(next.item);
                 lastReturned = next;
                 next = next.next;
                 nextIndex++;
             }
-            checkForComodification();
-        }
-
-        final void checkForComodification() {
-            if (modCount != expectedModCount)
-                throw new ConcurrentModificationException();
         }
     }
 
@@ -274,7 +272,6 @@ public class MyLinkedList<E> extends AbstractSequentialList<E> {
         else
             l.next = newNode;
         size++;
-        modCount++;
     }
 
     /**
@@ -290,6 +287,5 @@ public class MyLinkedList<E> extends AbstractSequentialList<E> {
         else
             pred.next = newNode;
         size++;
-        modCount++;
     }
 }
