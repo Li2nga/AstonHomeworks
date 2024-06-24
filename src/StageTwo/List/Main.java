@@ -59,5 +59,9 @@ public class Main {
         System.out.println("b = " + b);
         b.remove(1);
         System.out.println("b = " + b);
+        System.out.println("b.get(2) = " + b.get(2));
+        b.set(2, 88);
+        System.out.println("b = " + b);
+        System.out.println(b.size());
     }
 }
